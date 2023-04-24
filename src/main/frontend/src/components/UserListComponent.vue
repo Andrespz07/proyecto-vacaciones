@@ -5,6 +5,10 @@ const props = defineProps({
   },
   school:{
     type: String
+  },
+  view:{
+    type: String,
+    default: "userlistview"
   }
 
 });
@@ -34,7 +38,9 @@ const props = defineProps({
 
           <div class="d-flex flex-column">
 
-  <p class="text-sm font-weight-bold mr-10 mb-3 vacations">Vacaciones restantes: {{ profile.hollydays }}</p>
+  <p class="text-sm font-weight-bold mr-10 mb-3 vacations" v-if="view=='userlistview'">Vacaciones restantes: {{ profile.hollydays }}</p>
+  <p class="text-sm font-weight-bold mr-10 mb-3 vacations" v-if="view!='userlistview'" >Empleado de baja</p>
+
 </div>
         
         </div>
