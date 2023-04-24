@@ -168,14 +168,17 @@ aside {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-left: 40px;
+        margin-left: 1vw;
         margin-top: 2vh;
+        width: 47%;
     }
 
     .buttonPhoto {
         width: 90%;
+        height: 5vh;
         border-radius: 10px;
         overflow: hidden;
         margin-top: 1vh;
     }
-}</style>
+}
+</style>
