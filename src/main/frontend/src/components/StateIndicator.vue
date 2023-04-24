@@ -9,6 +9,7 @@ const props = defineProps(
         },
     }
 )
+
 const typeStatePicker = computed(() => {
     const options = {
         'Reject': 'rechazada',
@@ -40,6 +41,7 @@ const typeStatePicker = computed(() => {
         font-weight: bold; 
         text-align: center;
         padding: 3%;
+        text-transform: uppercase;
     }  
 }
 .rechazada{
@@ -48,4 +50,6 @@ const typeStatePicker = computed(() => {
 .aceptada{
     background-color: map-get($map: c.$colors, $key: "Green");
 }
+
+
 </style>

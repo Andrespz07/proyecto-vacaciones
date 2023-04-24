@@ -14,7 +14,7 @@ const props = defineProps({
             <h4>{{ request.endDate }}</h4>
         </div>
         <div class="status-zone">
-            <StateIndicator :state="request.state"/>
+            <StateIndicator  :state="request.state"/>
         </div>
     </div>
 </template>
@@ -33,8 +33,10 @@ const props = defineProps({
         }
         .status-zone{
             width: 30%;
+            height: 5vh;
             @include flexDisplay(row, center, center);
 
         }
+       
     }
 </style>

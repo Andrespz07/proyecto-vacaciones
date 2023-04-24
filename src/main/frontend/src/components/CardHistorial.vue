@@ -29,44 +29,41 @@ const fake = {
 </script>
 
 <template>
+  <div class="wrapper" @click="emitRequestDetails()">
+    <h2>{{ request.name }}</h2>
+    <v-card class="wrapper-card">
+      <v-card-text>
+        <div class="card-titulos d-flex">
+          <p class="school d-flex text-h6 font-weight-bold">
+            Nombre de la escuela:
+            {{ request.schoolOfUser }}
+          </p>
+          <p class="relative font-weight-medium mt-1">
+            {{ request.requestUser.startDate }} {{ request.requestUser.endDate }}
+          </p>
+          <p class="relative font-weight-medium mt-1">
+            <StateIndicator :state="request.requestUser.state" />
+          </p>
+        </div>
 
-    
-    <div class="wrapper" @click="emitRequestDetails()">
-      <h2>{{ request.name }}</h2>
-      <v-card class="wrapper-card">
-        <v-card-text>
-          <div class="card-titulos d-flex">
-            <p class="school d-flex text-h6 font-weight-bold">
-              Nombre de la escuela:
-              {{ request.schoolOfUser }}
+        <div class="card-container d-flex">
+          <div class="counter ">
+            <p class=" card-description d-flex top-12 ml-1 mr-1">
+              {{ request.requestUser.issue }}
             </p>
-            <p class="relative font-weight-medium mt-1">
-              {{ request.requestUser.startDate }} {{ request.requestUser.endDate }}
-            </p>
-            <p class="relative font-weight-medium mt-1">
-              <StateIndicator :state="request.requestUser.state"/>
-            </p>
+            <p>
+              Dias solicitados:{{ request.requestUser.quantityOfDays }}
+            <p> <br>
+              Revisado por: {{ fake.checked }}
+            </p> </p>
+            
+
           </div>
+        </div>
 
-          <div class="card-container d-flex">
-            <div class="counter d-flex flex-column">
-              <p class="uno text-sm font-weight-bold">
-                Dias solicitados:{{ request.requestUser.quantityOfDays }}
-              </p>
-              <p class=" dos text-sm font-weight-bold">
-                Revisado por: {{ fake.checked }}
-              </p>
-              <p class=" card-description d-flex top-12 ml-1 mr-1" >
-                {{ request.requestUser.issue }}
-              </p>
-
-            </div>
-          </div>
-
-        </v-card-text>
-      </v-card>
-    </div>
-
+      </v-card-text>
+    </v-card>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -120,6 +117,9 @@ h1 {
         display: flex;
         width: 100%;
         font-size: 18px;
+        justify-content: space-between;
+        margin: 4%;
+       
       }
     }
   }
