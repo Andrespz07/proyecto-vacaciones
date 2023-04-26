@@ -6,6 +6,10 @@ const props = defineProps({
   },
   school: {
     type: String
+  },
+  view:{
+    type: String,
+    default: "userlistview"
   }
 
 });

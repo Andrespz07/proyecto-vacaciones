@@ -50,8 +50,10 @@ const invertedDate = computed(() => {
         }
         .status-zone{
             width: 30%;
+            height: 5vh;
             @include flexDisplay(row, center, center);
 
         }
+       
     }
 </style>

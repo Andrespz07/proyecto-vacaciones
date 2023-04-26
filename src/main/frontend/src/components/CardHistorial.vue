@@ -40,9 +40,7 @@ const invertedDate = computed(() => {
 
 </script>
 
-<template>
-
-    
+<template>    
     <div class="wrapper" @click="emitRequestDetails()">
       <h2>{{ request.name }}</h2>
       <v-card class="wrapper-card">
@@ -59,7 +57,11 @@ const invertedDate = computed(() => {
             <p class="relative font-weight-medium mt-1">
               <StateIndicator :state="request.requestUser.state"/>
             </p>
-          </div>
+            <p>
+              Dias solicitados:{{ request.requestUser.quantityOfDays }}
+            <p> <br>
+              Revisado por: {{ fake.checked }}
+            </p>
 
           <div class="card-container d-flex">
 
@@ -78,12 +80,13 @@ const invertedDate = computed(() => {
             <p class="card-description d-flex" >
                 {{ request.requestUser.issue }}
               </p>
+
           </div>
+        </div>
 
-        </v-card-text>
-      </v-card>
-    </div>
-
+      </v-card-text>
+    </v-card>
+  </div>
 </template>
 
 <style lang="scss" scoped>

@@ -25,6 +25,7 @@ export const useAuthStore = defineStore('authStore', {
       this.isAuthenticated = true;
 
       if (this.username != '') return 'auth';
+      if (this.username == '') return 'unauth';
     },
     encoder(username, password) {
       const infoEncode = window.btoa(`${username}:${password}`);
