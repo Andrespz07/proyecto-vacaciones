@@ -1,5 +1,4 @@
 <script setup>
-import { useRouter } from 'vue-router'
 
 const props = defineProps({
   profile: {
@@ -14,7 +13,6 @@ const props = defineProps({
   }
 
 });
-const router = useRouter()
 
 </script>
 
@@ -71,4 +69,5 @@ const router = useRouter()
   .vacations {
     font-size: 1.2rem;
   }
-}</style>
+}
+</style>

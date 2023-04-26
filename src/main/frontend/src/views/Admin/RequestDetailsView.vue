@@ -1,7 +1,7 @@
 <script setup>
 import RequestDescription from '../../components/RequestDescription.vue';
 import iconArrowLeft from '@/assets/img/iconArrowLeft.png';
-import { onBeforeMount, onUpdated, reactive, ref } from 'vue';
+import { onBeforeMount, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAdminStore } from '../../stores/adminStore';
 import { useRoute } from 'vue-router';
@@ -13,7 +13,7 @@ const idRequest = route.params.idRequest
 const router = useRouter()
 let OneRequest = reactive({})
 
-onBeforeMount( () => {
+onBeforeMount(() => {
 
     OneRequest = adminStore.infoRequest(idRequest)
 })
@@ -21,6 +21,7 @@ onBeforeMount( () => {
 const acceptRequest = async () => {
     await adminStore.changeStateOfRequest(userDocument, idRequest, 'Accept')
     OneRequest = adminStore.infoRequest(idRequest)
+    
 }
 
 const rejectRequest = async () => {
@@ -47,7 +48,7 @@ const backTo = () => {
             </h1>
         </div>
         <div class="request-space">
-            <RequestDescription :request="OneRequest" @accept-emit="acceptRequest" @reject-emit="rejectRequest()"/>
+            <RequestDescription :request="adminStore.IndividualRequest" @accept-emit="acceptRequest" @reject-emit="rejectRequest()"/>
         </div>
     </div>
 </template>

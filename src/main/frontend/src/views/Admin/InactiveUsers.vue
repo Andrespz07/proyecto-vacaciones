@@ -10,12 +10,11 @@ const adminStore = useAdminStore();
 const searchQuery = ref("");
 
 
-const filteredActiveUsers = computed(() => {
-    if (!searchQuery.value) return adminStore.allUsers
-    return adminStore.allUsers.filter((user) =>
+const filteredInactiveUsers = computed(() => {
+    if (!searchQuery.value) return adminStore.allInactiveUsers
+    return adminStore.allInactiveUsers.filter((user) =>
         user.firstName.toLowerCase().includes(searchQuery.value.toLowerCase()))
 });
-
 
 
 const find = (parameter)=>{
@@ -35,11 +34,11 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-    <h1 id="title">Lista de Usuarios</h1>
+    <h1 id="title">Lista de usuarios de baja</h1>
     <div class="d-flex flex-column">
         <SearchBar v-model=searchQuery @update:query-value="find" />
         <div class="user-list-wrapper">
-            <UserListComponent v-for="(user, key) of filteredActiveUsers" :key="index" :school="adminStore.SchoolOfUser[key]"
+            <UserListComponent v-for="(user, key) of filteredInactiveUsers" :key="index" :school="adminStore.SchoolOfUser[key]"
                 :profile="user" @click="navigateToUserInfoView(user)"></UserListComponent>
         </div>
     </div>
